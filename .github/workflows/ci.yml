@@ -1,0 +1,17 @@
+name: CI Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run composite action
+        uses: mahekshahbad/composite-actions/node-quality-check@v1
+        with:
+          node-version: "18"
